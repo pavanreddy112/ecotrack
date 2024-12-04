@@ -1,0 +1,27 @@
+<%- include('partials/header', { title: 'EcoTrack - Feedback' }) %>
+    <%- include('partials/navbar') %>
+
+        <link rel="stylesheet" href='/css/feed.css'>
+        <!-- Page content -->
+        <div class="feedback-container">
+            <h2>Feedback</h2>
+            <form id="feedbackForm">
+                <input type="text" id="name" name="name" placeholder="Name" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <textarea id="message" name="message" placeholder="Your Feedback" rows="4" required></textarea>
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </div>
+        <div id="successMessage" class="hidden">Thank you for your feedback!</div>
+        <script>
+            document.getElementById('feedbackForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+                document.getElementById('successMessage').classList.remove('hidden');
+
+
+                this.reset();
+            });
+        </script>
+
+
+        <%- include('partials/footer') %>

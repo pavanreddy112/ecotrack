@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/header', { title: 'Profile' }) %>
+    <%- include('partials/navbar') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Usage and Carbon Emissions</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Basic Reset and General Styling */
+        
+
+        /* Hero Section */
+        .hero-section {
+            background-color: #14675e;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-section h1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5em;
+            gap: 10px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Scrollable Chart Wrapper */
+        .chart-wrapper {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 40px;
+            transition: all 0.3s ease-in-out;
+            height: 300px; /* Fixed height */
+            overflow: auto; /* Enable scroll if content overflows */
+        }
+
+        /* Scrollable Table Wrapper */
+        .table-wrapper {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: auto; /* Enable scroll if content overflows */
+            margin-bottom: 40px;
+            transition: all 0.3s ease-in-out;
+            max-height: 300px; /* Fixed max height */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #14674e;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        #navbar {
+    position: fixed;
+    width: 100%;
+    transition: top 0.3s;
+    top: 0; /* Initially set to visible */
+}
+
+        /* Hover Effects */
+        .chart-wrapper:hover,
+        .table-wrapper:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Icon Style */
+        .app-icon {
+            font-size: 24px;
+            margin-right: 10px;
+            color: #004d40; /* Dark green color */
+        }
+
+        /* Styling for App Name Column */
+        .app-name {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1><i class="fas fa-globe"></i> Track Your App Usage & Carbon Emissions</h1>
+            <p>Understand how your app usage impacts the environment and make informed decisions to reduce your digital footprint.</p>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Scrollable Chart Wrapper -->
+        <div class="chart-wrapper">
+            <canvas id="usageChart" width="400" height="200"></canvas>
+        </div>
+
+        <!-- Scrollable Table Wrapper -->
+        <div class="table-wrapper">
+            <table id="usageTable">
+                <thead>
+                    <tr>
+                        <th>App Name</th>
+                        <th>Time Spent (minutes)</th>
+                        <th>Carbon Emissions (grams)</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- JS for Chart -->
+    <script>
+        const updateTable = async () => {
+            const response = await fetch('/api/app-usage');
+            const appUsage = await response.json();
+            const tbody = document.querySelector('#usageTable tbody');
+            tbody.innerHTML = ''; // Clear existing table rows
+
+            const labels = []; // To hold app names
+            const timeSpentData = []; // To hold time spent data
+            const carbonEmissionsData = []; // To hold carbon emissions data
+
+            for (const app in appUsage) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="app-name"><i class="app-icon fab fa-${appUsage[app].icon}"></i>${app}</td>
+                    <td>${appUsage[app].timeSpent.toFixed(2)}</td>
+                    <td>${appUsage[app].carbonEmissions.toFixed(2)}</td>
+                `;
+                tbody.appendChild(row);
+
+                // Push data for chart
+                labels.push(app);
+                timeSpentData.push(appUsage[app].timeSpent);
+                carbonEmissionsData.push(appUsage[app].carbonEmissions);
+            }
+
+            updateChart(labels, timeSpentData, carbonEmissionsData); // Update chart with new data
+        };
+
+        // Initialize Chart.js
+        const ctx = document.getElementById('usageChart').getContext('2d');
+        const usageChart = new Chart(ctx, {
+            type: 'line', // Line chart
+            data: {
+                labels: [], // Will be updated dynamically
+                datasets: [
+                    {
+                        label: 'Time Spent (minutes)',
+                        data: [],
+                        borderColor: '#00695c', // Dark green color
+                        backgroundColor: 'rgba(0, 105, 92, 0.2)', // Light green color
+                        fill: true,
+                        tension: 0.4, // Smooth lines
+                        pointRadius: 5, // Size of points
+                        pointBackgroundColor: '#fff', // Point color
+                        pointBorderColor: '#00695c', // Point border color
+                        pointBorderWidth: 2, // Point border width
+                    },
+                    {
+                        label: 'Carbon Emissions (grams)',
+                        data: [],
+                        borderColor: '#ff5722', // Bright red color
+                        backgroundColor: 'rgba(255, 87, 34, 0.2)', // Light red color
+                        fill: true,
+                        tension: 0.4, // Smooth lines
+                        pointRadius: 5, // Size of points
+                        pointBackgroundColor: '#fff', // Point color
+                        pointBorderColor: '#ff5722', // Point border color
+                        pointBorderWidth: 2, // Point border width
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Values',
+                            color: '#333',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Apps',
+                            color: '#333',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#333',
+                            font: {
+                                size: 14
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#fff',
+                        borderColor: '#ddd',
+                        borderWidth: 1,
+                        titleColor: '#333',
+                        bodyColor: '#333',
+                        callbacks: {
+                            label: function (context) {
+                                return `${context.dataset.label}: ${context.parsed.y.toFixed(2)}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        const updateChart = (labels, timeSpentData, carbonEmissionsData) => {
+            usageChart.data.labels = labels;
+            usageChart.data.datasets[0].data = timeSpentData;
+            usageChart.data.datasets[1].data = carbonEmissionsData;
+            usageChart.update(); // Update the chart
+        };
+
+        // Initial fetch to populate the table and chart
+        updateTable();
+        setInterval(updateTable, 5000); // Update every 5 seconds
+        let lastScrollTop = 0;
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            // User is scrolling down, hide the navbar
+            navbar.style.top = '-100px';
+        } else {
+            // User is scrolling up, show the navbar
+            navbar.style.top = '0';
+        }
+
+        lastScrollTop = scrollTop;
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<%- include('partials/header', { title: 'EcoTrack - Emission Calculator' }) %>
+    <%- include('partials/navbar') %>
+
+        <link rel="stylesheet" href='/css/emission.css'>
+
+        <section class="calculator-options">
+            <div class="container">
+                <h2 class="section-title">Choose Your Emission Calculator</h2>
+                <p class="section-description">Select from the options below to accurately assess your environmental
+                    impact in different areas.</p>
+
+                <div class="row">
+                    <!-- Personal Carbon Emission Calculator -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="calculator-card">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-leaf icon green-icon"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Personal Carbon Emission</h3>
+                                <p>Calculate your individual carbon footprint based on daily activities like
+                                    transportation, Electricity , and net.</p>
+                                <a href="https://emissioncalculator-as4bhm5mg3xuxsaxkxfdyc.streamlit.app/"
+                                    class="btn btn-primary" target="_blank">Calculate Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Apps Carbon Calculator -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="calculator-card">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-mobile-alt icon blue-icon"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Social Media Apps</h3>
+                                <p>Evaluate the carbon footprint of your social media usage across platforms like
+                                    Facebook and Instagram.</p>
+                                <a href="https://appemissioncalculator-yvf7smpdykfbpq3vktqp6j.streamlit.app/"
+                                    class="btn btn-primary" target="_blank">Calculate Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Games Emission Calculator -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="calculator-card">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-gamepad icon red-icon"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Games Emission</h3>
+                                <p>Discover the carbon emissions from gaming apps, Bgmi, COD and cloud gaming
+                                    energy consumption.</p>
+                                <a href="https://appemissioncalculator-ynp5f27cxowl4avtqw5xnc.streamlit.app/"
+                                    class="btn btn-primary" target="_blank">Calculate Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gen AI's Carbon Emission Calculator -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="calculator-card">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-robot icon purple-icon"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Gen AI's Carbon Emission</h3>
+                                <p>Estimate the environmental impact of generative AI, including the energy used for
+                                    training and running models.</p>
+                                <a href="https://appemissioncalculator-fgjavaecob3dnsabxzrhxg.streamlit.app/"
+                                    class="btn btn-primary" target="_blank">Calculate Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <%- include('partials/footer') %>

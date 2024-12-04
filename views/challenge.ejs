@@ -1,0 +1,196 @@
+<%- include('partials/header', { title: 'EcoTrack - Challenges' }) %>
+    <%- include('partials/navbar') %>
+        <link rel="stylesheet" href="/css/challenge.css">
+        <!-- Font Awesome CDN -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+        <section class="challenges-section">
+            <canvas id="confettiCanvas"></canvas>
+            <div class="challenges-container">
+                <h2 class="challenges-title">EcoTrack Challenges</h2>
+                <div class="points-container">
+                    <p class="section-description">Complete these challenges to reduce your carbon footprint and earn
+                        reward points!</p>
+                        <a href="/user/leaderboard" class="leaderboard-link" title="View Leaderboard">
+                            <i class="fas fa-trophy leaderboard-icon"></i>
+                        </a>
+                    <!-- Points Display -->
+                    <div class="points-display">
+                        <i class="fas fa-medal points-icon"></i>
+                        <span id="user-points">0</span>
+                        <!-- Leaderboard Link with Icon -->
+                        
+                    </div>
+                </div>
+
+                <div class="challenge-card-container">
+                    <!-- Challenge 1 (Switch to LED Bulbs) -->
+                    <div class="challenge-card">
+                        <span class="points">50</span>
+                        <i class="fas fa-lightbulb icon lightbulb-icon"></i>
+                        <div class="card-content">
+                            <h3>Switch to LED Bulbs</h3>
+                            <p>Replace all your old light bulbs with energy-efficient LED bulbs.</p>
+                            <form class="challenge-form" data-points="50">
+                                <input type="hidden" name="points" value="50" />
+                                <div class="file-input-wrapper">
+                                    <input type="file" name="picture" required />
+                                    <label class="file-input-label">Choose a file</label>
+                                </div>
+                                <button type="submit" class="btn-primary">Submit Proof</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Challenge 2 (Reduce Plastic Usage) -->
+                    <div class="challenge-card">
+                        <span class="points">75</span>
+                        <i class="fas fa-recycle icon recycle-icon"></i>
+                        <div class="card-content">
+                            <h3>Reduce Plastic Usage</h3>
+                            <p>Eliminate single-use plastics from your daily life. Use reusable bags and bottles.</p>
+                            <form class="challenge-form" data-points="75">
+                                <input type="hidden" name="points" value="75" />
+                                <div class="file-input-wrapper">
+                                    <input type="file" name="picture" required />
+                                    <label class="file-input-label">Choose a file</label>
+                                </div>
+                                <button type="submit" class="btn-primary">Submit Proof</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Challenge 3 (Carpool or Use Public Transport) -->
+                    <div class="challenge-card">
+                        <span class="points">100</span>
+                        <i class="fas fa-car icon car-icon"></i>
+                        <div class="card-content">
+                            <h3>Carpool or Use Public Transport</h3>
+                            <p>Reduce your carbon emissions by carpooling with others or using public transportation.
+                            </p>
+                            <form class="challenge-form" data-points="100">
+                                <input type="hidden" name="points" value="100" />
+                                <div class="file-input-wrapper">
+                                    <input type="file" name="picture" required />
+                                    <label class="file-input-label">Choose a file</label>
+                                </div>
+                                <button type="submit" class="btn-primary">Submit Proof</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Challenge 4 (Plant a Tree) -->
+                    <div class="challenge-card">
+                        <span class="points">150</span>
+                        <i class="fas fa-tree icon tree-icon"></i>
+                        <div class="card-content">
+                            <h3>Plant a Tree</h3>
+                            <p>Plant a tree in your community or participate in a tree planting event.</p>
+                            <form class="challenge-form" data-points="150">
+                                <input type="hidden" name="points" value="150" />
+                                <div class="file-input-wrapper">
+                                    <input type="file" name="picture" required />
+                                    <label class="file-input-label">Choose a file</label>
+                                </div>
+                                <button type="submit" class="btn-primary">Submit Proof</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Challenge 5 (Adopt a Green Lifestyle) -->
+                    <div class="challenge-card">
+                        <span class="points">200</span>
+                        <i class="fas fa-leaf icon leaf-icon"></i>
+                        <div class="card-content">
+                            <h3>Adopt a Green Lifestyle</h3>
+                            <p>Commit to a green lifestyle by adopting sustainable habits and reducing waste.</p>
+                            <form class="challenge-form" data-points="200">
+                                <input type="hidden" name="points" value="200" />
+                                <div class="file-input-wrapper">
+                                    <input type="file" name="picture" required />
+                                    <label class="file-input-label">Choose a file</label>
+                                </div>
+                                <button type="submit" class="btn-primary">Submit Proof</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Challenge 6 (Use Renewable Energy) -->
+                    <div class="challenge-card">
+                        <span class="points">250</span>
+                        <i class="fas fa-solar-panel icon solar-icon"></i>
+                        <div class="card-content">
+                            <h3>Use Renewable Energy</h3>
+                            <p>Switch to renewable energy sources like solar or wind for your home.</p>
+                            <form class="challenge-form" data-points="250">
+                                <input type="hidden" name="points" value="250" />
+                                <div class="file-input-wrapper">
+                                    <input type="file" name="picture" required />
+                                    <label class="file-input-label">Choose a file</label>
+                                </div>
+                                <button type="submit" class="btn-primary">Submit Proof</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Challenge 7 (Reduce Water Consumption) -->
+                    <div class="challenge-card">
+                        <span class="points">300</span>
+                        <i class="fas fa-tint icon water-icon"></i>
+                        <div class="card-content">
+                            <h3>Reduce Water Consumption</h3>
+                            <p>Implement water-saving techniques and reduce your overall water usage.</p>
+                            <form class="challenge-form" data-points="300">
+                                <input type="hidden" name="points" value="300" />
+                                <div class="file-input-wrapper">
+                                    <input type="file" name="picture" required />
+                                    <label class="file-input-label">Choose a file</label>
+                                </div>
+                                <button type="submit" class="btn-primary">Submit Proof</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Challenge 8 (Educate Others on Sustainability) -->
+                    <div class="challenge-card">
+                        <span class="points">350</span>
+                        <i class="fas fa-user-graduate icon educate-icon"></i>
+                        <div class="card-content">
+                            <h3>Educate Others on Sustainability</h3>
+                            <p>Share your knowledge on sustainable practices and help others reduce their carbon
+                                footprint.</p>
+                            <form class="challenge-form" data-points="350">
+                                <input type="hidden" name="points" value="350" />
+                                <div class="file-input-wrapper">
+                                    <input type="file" name="picture" required />
+                                    <label class="file-input-label">Choose a file</label>
+                                </div>
+                                <button type="submit" class="btn-primary">Submit Proof</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Challenge 9 (Use Energy-Efficient Appliances) -->
+                    <div class="challenge-card">
+                        <span class="points">400</span>
+                        <i class="fas fa-plug icon plug-icon"></i>
+                        <div class="card-content">
+                            <h3>Use Energy-Efficient Appliances</h3>
+                            <p>Upgrade your home by switching to energy-efficient appliances to reduce energy
+                                consumption.</p>
+                            <form class="challenge-form" data-points="400">
+                                <input type="hidden" name="points" value="400" />
+                                <div class="file-input-wrapper">
+                                    <input type="file" name="picture" required />
+                                    <label class="file-input-label">Choose a file</label>
+                                </div>
+                                <button type="submit" class="btn-primary">Submit Proof</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.7.0/dist/confetti.browser.min.js"></script>
+        <script src="/js/challenge.js"></script>
+        <%- include('partials/footer') %>

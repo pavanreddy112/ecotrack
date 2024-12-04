@@ -1,0 +1,125 @@
+<%- include('partials/header', { title: 'EcoTrack - Home' }) %>
+    <%- include('partials/navbar') %>
+        <link rel="stylesheet" href="/css/home.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <body>
+            <div class="container">
+                <!-- Hero Section -->
+                <section class="hero">
+                    <div class="hero-content">
+                        <h1>Welcome to EcoTrack</h1>
+                        <p>Empower your digital life with sustainable choices.</p>
+                        <a href="#overview" class="btn-primary">Learn More</a>
+                    </div>
+
+                </section>
+                <h2 id="cont">Key Features</h2>
+                <section class="features">
+                    <div class="features-content">
+
+
+                        <div class="feature">
+                            <img src="/assets/images/envcalcutor.jpeg" alt="Environmental Calculator"
+                                class="feature-icon">
+                            <div class="feature-text">
+                                <h3>Carbon Footprint Calculator</h3>
+                                <p>Visualize the carbon emissions from your digital activities.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature">
+                            <img src="/assets/images/Screen.png" alt="Screen Time Tracking" class="feature-icon">
+                            <div class="feature-text">
+                                <h3>Screen Time Tracking</h3>
+                                <p>Monitor and manage your screen time to reduce environmental impact.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature">
+                            <img src="/assets/images/Challenges.png" alt="Challenges and Rewards" class="feature-icon">
+                            <div class="feature-text">
+                                <h3>Challenges and Rewards</h3>
+                                <p>Engage in challenges and earn rewards for reducing your carbon footprint.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <img src="/assets/images/Community.png" alt="Community Engagement" class="feature-icon">
+                            <div class="feature-text">
+                                <h3>Community Engagement</h3>
+                                <p>Connect with others who are committed to sustainable digital habits.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                <!-- Overview Section -->
+                <section class="overview" id="overview">
+                    <h2>Data Overview</h2>
+                    <div class="overview-charts">
+                        <div class="chart-container">
+                            <canvas id="co2BarChart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="energyPieChart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="countryEmissionChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                </section>
+
+                <!-- Key Features Section -->
+
+                <!-- Video Section -->
+                <section class="video">
+                    <div class="video-content">
+                        <h2>Watch Our Introduction Video</h2>
+                        <video controls>
+                            <source
+                                src="https://res.cloudinary.com/di7wy7ldo/video/upload/v1725895521/video/fjeoeloyv6oi1fusfw5g.mp4"
+                                type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </section>
+
+                <!-- Benefits Section -->
+                <section class="benefits">
+                    <div class="benefits-content">
+                        <h2>Benefits</h2>
+                        <div class="benefit">
+                            <i class="fas fa-check-circle icon"></i>
+                            <div class="benefit-text">
+                                <h3>Enhanced Awareness</h3>
+                                <p>Gain insight into the environmental impact of your digital behavior.</p>
+                            </div>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-check-circle icon"></i>
+                            <div class="benefit-text">
+                                <h3>Improved Sustainability</h3>
+                                <p>Adopt practices to reduce your carbon footprint and promote sustainability.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-check-circle icon"></i>
+                            <div class="benefit-text">
+                                <h3>Community Support</h3>
+                                <p>Engage with a network of like-minded individuals committed to eco-friendly
+                                    goals.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+            </div>
+
+            <script src="/js/home.js"></script>
+        </body>
+        <%- include('partials/footer') %>

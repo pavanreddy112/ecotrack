@@ -1,0 +1,31 @@
+<%- include('partials/header', { title: 'EcoTrack - Help' }) %>
+    <%- include('partials/navbar')%>
+        <link rel="stylesheet" href='/css/help.css'>
+        <div id="container">
+            <h1>Welcome to EcoTrackBot!</h1>
+            <div id="initialPrompt">
+                <input type="text" id="nameInput" placeholder="What is your name?">
+                <button id="startButton">Start</button>
+
+            </div>
+            <div id="blank" style="display: none;"></div>
+
+        </div>
+        <div id="chatBox" style="display: none;">
+            <div id="mainTopics">
+                <h2>Select a main topic to learn more:</h2>
+                <ul id="topicsList"></ul>
+            </div>
+            <div id="subTopics" style="display: none;">
+                <h2>Subtopics:</h2>
+                <ul id="subtopicsList"></ul>
+            </div>
+            <div id="subTopicInfo" style="display: none;">
+                <h2>Information:</h2>
+                <div id="infoText"></div>
+            </div>
+            <button id="moreQueriesButton" style="display: none;">Do you have more queries?</button>
+            <button id="endChatButton" style="display: none;">End Chat</button>
+        </div>
+        </div>
+        <script src="/js/help.js"></script>

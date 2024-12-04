@@ -1,0 +1,31 @@
+{
+  "name": "ecotrack",
+  "version": "1.0.0",
+  "description": "ecotrack project",
+  "main": "server.js",
+  "scripts": {
+    "start": "server.js",
+    "server": "nodemon server.js"
+  },
+  "author": "code04",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "canvas-confetti": "^1.9.3",
+    "cloudinary": "^2.4.0",
+    "colors": "^1.4.0",
+    "cookie-parser": "^1.4.6",
+    "datauri": "^4.1.0",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "get-windows": "^9.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.6.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.7",
+    "socket.io": "^4.8.0"
+  }
+}

@@ -1,0 +1,94 @@
+<%- include('partials/header', { title: 'EcoTrack - Sign Up' }) %>
+
+    <link rel="stylesheet" href='/css/sign.css'>
+
+    <body>
+        <div class="container">
+            <!-- Sign-up Form Container -->
+            <div class="signup-container">
+                <h2>EcoTrack Sign Up</h2>
+                <form id="signupForm" action="/user/signup" method="post">
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="username" name="username" placeholder="Username" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="confirmPassword" name="confirmPassword"
+                            placeholder="Confirm Password" required>
+                    </div>
+                    <button type="submit" class="btn">Sign Up</button>
+                </form>
+                <div class="login-link">
+                    <p>Already have an account? <a href="/user/login">Login here</a></p>
+                </div>
+            </div>
+
+            <!-- Right Panel for Existing Users -->
+            <div class="panels-container">
+                <div class="panel right-panel">
+                    <div class="content">
+                        <h3>Already have an account?</h3>
+                        <p>
+                            Log in to your EcoTrack account to view your carbon emission data
+                            and track your progress in reducing your environmental footprint.
+                        </p>
+                        <a href="/user/login">
+                            <button class="btn transparent" id="sign-in-btn">Sign in</button>
+                        </a>
+                    </div>
+                    <img src="/assets/images/register.svg" class="image" alt="Sign in image" />
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById('signupForm').addEventListener('submit', async function (e) {
+                e.preventDefault();  // Prevent the default form submission
+
+                // Get form data
+                const username = document.getElementById('username').value;
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+
+                // Validate passwords
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match');
+                    return;
+                }
+
+                try {
+                    // Send POST request
+                    const response = await fetch('/user/signup', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ username, email, password }) // Sending only the necessary fields
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        // Redirect to login page on success
+                        window.location.href = '/user/login';
+                    } else {
+                        // Handle registration failure
+                        alert(result.message || 'Registration failed');
+                    }
+                } catch (error) {
+                    console.error('Error during registration:', error);
+                    alert('An error occurred. Please try again.');
+                }
+            });
+        </script>
+    </body>

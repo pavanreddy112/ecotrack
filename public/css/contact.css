@@ -1,0 +1,98 @@
+/* Contact Us Page Styling */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #006666;
+    font-size: 36px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Two columns layout */
+    gap: 20px;
+    justify-content: center;
+}
+
+.contact-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.contact-card h2 {
+    color: #006666;
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.contact-card p {
+    color: #666;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.contact-card a {
+    color: #006666;
+    text-decoration: none;
+}
+
+.contact-card a:hover {
+    text-decoration: underline;
+}
+
+.social-media {
+    margin-top: 15px;
+}
+
+.social-icon {
+    color: #008080;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #006666;
+}
+
+.container h2 {
+    text-align: center;
+    color: #b73f3f;
+    /* Matching the color theme */
+    font-size: 24px;
+    font-weight: 600;
+    /* Semi-bold for emphasis */
+
+    /* Adjust space between the h1 and h2 if needed */
+
+    /* Spacing below the h2 */
+    line-height: 1.4;
+    padding: 0 20px;
+    /* Padding to ensure it's not too close to the edges */
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        /* Single column layout on small screens */
+    }
+}

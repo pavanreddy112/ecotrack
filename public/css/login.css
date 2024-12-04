@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    height: 100%;
+    background-color: #f0f8f4;
+}
+
+/* Container */
+.container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    background-color: #fff;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Background Style */
+.container::before {
+    content: '';
+    position: absolute;
+    height: 2000px;
+    width: 2000px;
+    top: -10%;
+    right: 48%;
+    /* Keep it centered */
+    transform: translateY(-50%);
+    background-image: linear-gradient(-45deg, #20dbc2 0%, #00bfa6 100%);
+    transition: 1.8s ease-in-out;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Login Container (Adjusted for Signup Similarity) */
+.login-container {
+    position: relative;
+    width: 400px;
+    /* Same width as signup form */
+    padding: 3rem 4rem;
+    /* Padding to match signup form */
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* Keep aligned as in signup */
+    margin-right: 10rem;
+    /* Adjust spacing if needed */
+}
+
+/* Panels Container */
+.panels-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
+    width: 60%;
+}
+
+/* Left Panel */
+.panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 2;
+}
+
+.left-panel {
+    padding: 3rem;
+}
+
+.panel .content {
+    color: #fff;
+}
+
+.panel h3 {
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.panel p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.btn.transparent {
+    background: none;
+    border: 2px solid #fff;
+    width: 130px;
+    height: 41px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.panel .image {
+    width: 300px;
+    margin-top: 30px;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0;
+    width: 100%;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: left;
+    /* Align title */
+}
+
+/* Input Fields */
+.input-field {
+    width: 100%;
+    height: 55px;
+    background-color: #f0f0f0;
+    margin: 10px 0;
+    border-radius: 55px;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.input-field i {
+    color: #acacac;
+    font-size: 1.2rem;
+}
+
+.input-field input {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: #333;
+    flex: 1;
+}
+
+/* Button */
+.btn {
+    width: 100%;
+    height: 49px;
+    border: none;
+    border-radius: 48px;
+    cursor: pointer;
+    background-color: #20dbc2;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #00bfa6;
+    transform: scale(1.05);
+}
+
+/* Signup Link */
+.signup-link {
+    text-align: left;
+    /* Align link same as signup */
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.signup-link a {
+    color: #20dbc2;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.signup-link a:hover {
+    color: #00bfa6;
+    text-decoration: underline;
+}

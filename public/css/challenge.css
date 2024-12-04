@@ -1,0 +1,385 @@
+/* Challenges Section */
+.challenges-section {
+    padding: 60px 0;
+    background-color: #ffff;
+    position: relative;
+}
+
+.challenges-title {
+    font-size: 32px;
+    color: #004d40;
+    /* Updated to match the green tone */
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.challenge-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.challenge-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: calc(25% - 20px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    color: #2C3E50;
+    min-height: 250px;
+}
+
+.challenge-card.submitted {
+    background-color: #e1f7d5;
+    color: #2C3E50;
+    cursor: not-allowed;
+}
+
+.challenge-card.submitted .points {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.challenge-card.submitted .points:before {
+    content: "";
+    font-size: 0;
+}
+
+.challenge-card.submitted .card-content {
+    color: #2C3E50;
+}
+
+.challenge-card:hover {
+    background-color: #1abc9c;
+    /* Updated to match hover effect of calculator cards */
+    color: #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.challenge-card:hover .card-content {
+    color: #fff;
+}
+
+.challenge-card .points {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #fff;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.challenge-card .points:before {
+    content: "+";
+    font-size: 24px;
+    margin-right: 5px;
+    color: #ffcc00;
+    /* Kept the same color for consistency */
+}
+
+.card-content {
+    margin-top: 40px;
+}
+
+.card-content h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #004d40;
+    /* Matches button style in the rest of the app */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #fff;
+    color: #00468b;
+    border: 1px solid #00468b;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    .challenge-card {
+        width: calc(33.33% - 20px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .challenge-card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .challenge-card {
+        width: 100%;
+    }
+}
+
+/* Confetti Canvas */
+#confettiCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Section Description and Points Display */
+.points-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    font-size: 18px;
+    color: #004d40;
+    /* Updated to match the section title */
+    margin: 0;
+    text-align: center;
+    flex: 1;
+}
+
+.points-display {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    color: #004d40;
+    /* Matching overall design */
+    margin-right: 150px;
+}
+
+.leaderboard-link {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    color: #004d40;
+    /* Matching overall design */
+    margin-right: 10px;
+
+}
+
+.leaderboard-link i {
+    font-size: 1.8rem;
+    margin-right: 8px;
+}
+
+.leaderboard-link:hover {
+    background-color: #f0f0f0;
+    border-color: #ccc;
+    color: #003d33;
+}
+
+
+.section-description {
+    font-size: 1.5rem;
+    /* Adjust the font size */
+    line-height: 1.6;
+    /* Improve readability */
+    color: #333;
+    /* Set text color */
+
+}
+
+.points-icon {
+
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+#user-points {
+    padding: auto;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .points-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .section-description {
+        margin-bottom: 10px;
+    }
+
+    .points-display {
+        font-size: 16px;
+        margin-left: 0;
+    }
+
+    .points-icon {
+        font-size: 20px;
+    }
+
+    #user-points {
+        font-size: 20px;
+    }
+}
+
+/* challenge.css */
+
+.challenge-card .icon {
+    font-size: 3rem;
+    /* Adjust size as needed */
+    transition: color 0.3s ease;
+    /* Smooth color transition */
+}
+
+/* Specific icon colors */
+.lightbulb-icon {
+    color: #ffeb3b;
+    /* Yellow for lightbulb */
+}
+
+.recycle-icon {
+    color: #4caf50;
+    /* Green for recycle */
+}
+
+.car-icon {
+    color: #2196f3;
+    /* Blue for car */
+}
+
+.tree-icon {
+    color: #8bc34a;
+    /* Light green for tree */
+}
+
+.leaf-icon {
+    color: #4caf50;
+    /* Green for leaf */
+}
+
+.solar-icon {
+    color: #ff9800;
+    /* Orange for solar panel */
+}
+
+.water-icon {
+    color: #03a9f4;
+    /* Light blue for water */
+}
+
+.educate-icon {
+    color: #9c27b0;
+    /* Purple for educate */
+}
+
+.plug-icon {
+    color: #f44336;
+    /* Red for plug */
+}
+
+/* Hover effect for all challenge cards */
+
+
+/* Additional styling for points display */
+.points-display {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.points-icon {
+    margin-right: 0.5rem;
+    color: #ff9800;
+    /* Gold color for points icon */
+}
+
+.points {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #009688;
+    /* Teal background */
+    color: white;
+}
+
+/* Styling for disabled button */
+.btn-disabled {
+    background-color: #b2dfdb;
+    /* Light teal */
+    cursor: not-allowed;
+}
+
+.file-input-wrapper {
+    position: relative;
+}
+
+.file-input-wrapper input[type="file"] {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+.file-input-label {
+    display: inline-block;
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.file-input-label:hover {
+    background-color: #ced4da;
+}

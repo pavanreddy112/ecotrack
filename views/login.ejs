@@ -1,0 +1,41 @@
+<%- include('partials/header', { title: 'EcoTrack - Login' }) %>
+
+    <link rel="stylesheet" href='/css/login.css'>
+
+    <body>
+        <div class="container">
+            <!-- Right Panel for Login Info -->
+            <div class="panels-container">
+                <div class="panel left-panel">
+                    <div class="content">
+                        <h3>New to EcoTrack?</h3>
+                        <p>
+                            EcoTrack helps you calculate and reduce your carbon footprint.
+                            Join us to take control of your environmental impact today.
+                        </p>
+                        <a href="/user/signup">
+                            <button class="btn transparent" id="sign-up-btn">Sign up</button>
+                        </a>
+                    </div>
+                    <img src="/assets/images/log.svg" class="image" alt="Sign up image" />
+                </div>
+            </div>
+
+            <!-- Login Container -->
+            <div class="login-container">
+                <h2>EcoTrack Login</h2>
+                <form id="loginForm" action="/user/login" method="post" class="loginForm">
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                </form>
+
+            </div>
+        </div>
+    </body>

@@ -1,0 +1,105 @@
+/* Feedback container styling */
+.feedback-container {
+    background: #ffffff;
+    /* White background for the container */
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    padding: 20px;
+    /* Space inside the container */
+    max-width: 600px;
+    /* Limit the width */
+    margin: 20px auto;
+    /* Center container horizontally and space from top/bottom */
+    box-sizing: border-box;
+    /* Include padding in width */
+}
+
+/* Heading style */
+.feedback-container h2 {
+    color: #008080;
+    /* Teal color for the heading */
+    font-size: 32px;
+    /* Large font size for prominence */
+    margin-bottom: 20px;
+    /* Space below the heading */
+    text-align: center;
+    /* Center align the heading */
+}
+
+/* Form styling */
+#feedbackForm {
+    display: flex;
+    flex-direction: column;
+    /* Stack form elements vertically */
+    gap: 15px;
+    /* Space between form elements */
+}
+
+/* Input and textarea styling */
+#feedbackForm input,
+#feedbackForm textarea {
+    border: 1px solid #ddd;
+    /* Light gray border */
+    border-radius: 5px;
+    /* Rounded corners */
+    padding: 10px;
+    /* Space inside input/textarea */
+    font-size: 16px;
+    /* Readable font size */
+    width: 100%;
+    /* Full width of the container */
+    box-sizing: border-box;
+    /* Include padding in width */
+}
+
+/* Button styling */
+#feedbackForm button {
+    background: #008080;
+    /* Teal background */
+    color: #ffffff;
+    /* White text color */
+    border: none;
+    /* Remove default border */
+    border-radius: 5px;
+    /* Rounded corners */
+    padding: 15px;
+    /* Space inside button */
+    font-size: 16px;
+    /* Match font size with inputs */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    transition: background 0.3s ease;
+    /* Smooth background color transition */
+}
+
+#feedbackForm button:hover {
+    background: #006666;
+    /* Darker teal on hover */
+}
+
+/* Success message styling */
+#successMessage {
+    background: #d4edda;
+    /* Light green background for success */
+    color: #155724;
+    /* Dark green text color */
+    border: 1px solid #c3e6cb;
+    /* Green border */
+    border-radius: 5px;
+    /* Rounded corners */
+    padding: 15px;
+    /* Space inside the message box */
+    margin-top: 20px;
+    /* Space above the message box */
+    text-align: center;
+    /* Center align text */
+    font-size: 16px;
+    /* Font size for readability */
+}
+
+.hidden {
+    display: none;
+    /* Hide the message initially */
+}

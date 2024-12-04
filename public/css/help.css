@@ -1,0 +1,169 @@
+#container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #f9f9f9;
+    /* Slightly off-white container background */
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    color: #388e3c;
+    margin-bottom: 30px;
+    font-size: 2.8em;
+    font-weight: bold;
+}
+
+#initialPrompt {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.2em;
+    color: #666;
+}
+
+#nameInput {
+    padding: 14px;
+    margin-right: 10px;
+    width: 60%;
+    border: 2px solid #4caf50;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background-color: #fff;
+    /* Set input background to white */
+    color: #333;
+}
+
+#nameInput:focus {
+    border-color: #2e7d32;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #4caf50, #2e7d32);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #43a047, #1b5e20);
+    transform: scale(1.05);
+}
+
+#topicsList,
+#subtopicsList {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+}
+
+#topicsList li,
+#subtopicsList li {
+    cursor: pointer;
+    padding: 18px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #ffffff;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#topicsList li:hover,
+#subtopicsList li:hover {
+    background: #f1f8e9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+#subTopicInfo {
+    margin-top: 30px;
+    padding: 25px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.1em;
+    color: #333;
+}
+
+#moreQueriesButton,
+#endChatButton {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #00468b;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#moreQueriesButton:hover,
+#endChatButton:hover {
+    background-color: #003366;
+}
+
+/* Card Styles */
+.card {
+    background: linear-gradient(135deg, #a5d6a7, #81c784);
+    padding: 25px;
+    border-radius: 12px;
+    margin: 20px 0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1.6em;
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin-bottom: 0;
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    #container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    #nameInput {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #topicsList li,
+    #subtopicsList li {
+        padding: 14px;
+    }
+}

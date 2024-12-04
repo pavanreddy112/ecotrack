@@ -1,0 +1,191 @@
+ /* Calculator Options Section */
+ .calculator-options {
+     padding: 60px 0;
+ }
+
+ .section-title {
+     font-size: 32px;
+     color: #004d40;
+     font-weight: bold;
+     margin-bottom: 20px;
+     text-align: center;
+ }
+
+ .section-description {
+     font-size: 1.5rem;
+     /* Adjust the font size */
+     line-height: 1.6;
+     /* Improve readability */
+     color: #333;
+     /* Set text color */
+
+     text-align: center;
+ }
+
+ /* Card Style - 4 Columns Layout */
+ .row {
+     display: flex;
+     justify-content: space-between;
+     gap: 20px;
+ }
+
+ .calculator-card {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     background-color: #fff;
+     border: 1px solid #ddd;
+     border-radius: 10px;
+     padding: 30px 20px;
+     transition: all 0.4s ease-in-out;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     position: relative;
+     overflow: hidden;
+     text-align: center;
+ }
+
+ .calculator-card:hover {
+     background-color: #1abc9c;
+     color: #fff;
+     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+     transform: translateY(-5px);
+ }
+
+ .calculator-card:hover .icon-wrapper {
+     border: 2px solid #fff;
+     animation: outline-grow 0.5s ease-in-out;
+ }
+
+ .calculator-card:hover .icon {
+     color: #fff;
+ }
+
+ /* Icon Wrapper for Card */
+ .icon-wrapper {
+     background-color: transparent;
+     border: 2px solid #004d40;
+     border-radius: 50%;
+     width: 80px;
+     height: 80px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: all 0.4s ease-in-out;
+ }
+
+ .icon-wrapper .icon {
+     font-size: 36px;
+     color: #004d40;
+     transition: color 0.4s ease-in-out;
+ }
+
+ /* Icon Outline Animation */
+ @keyframes outline-grow {
+     0% {
+         border-color: transparent;
+     }
+
+     100% {
+         border-color: #fff;
+     }
+ }
+
+ /* Card Content */
+ .card-content {
+     margin-top: 20px;
+ }
+
+ .card-content h3 {
+     font-size: 22px;
+     margin-bottom: 10px;
+ }
+
+ .card-content p {
+     font-size: 16px;
+     margin-bottom: 20px;
+ }
+
+ /* Button Styling */
+ .btn-primary {
+     background-color: #004d40;
+     color: #fff;
+     padding: 10px 20px;
+     border-radius: 5px;
+     font-size: 14px;
+     transition: background-color 0.3s ease-in-out;
+     text-decoration: none;
+ }
+
+ .btn-primary:hover {
+     background-color: #fff;
+     color: #00468b;
+ }
+
+ /* emission.css */
+
+ .icon-wrapper .icon {
+     color: #4caf50;
+     /* Green color for icons */
+     font-size: 2rem;
+     /* Adjust size as needed */
+     transition: color 0.3s ease;
+     /* Smooth color transition */
+ }
+
+ .calculator-card:hover .icon {
+     color: #00bcd4;
+     /* Change to teal color on hover */
+ }
+
+ /* emission.css */
+
+ .icon-wrapper .icon {
+     color: #4caf50;
+     /* Green color for icons */
+     font-size: 2rem;
+     /* Adjust size as needed */
+     transition: color 0.3s ease;
+     /* Smooth color transition */
+ }
+
+ .calculator-card:hover .icon {
+     color: #00bcd4;
+     /* Change to teal color on hover */
+ }
+
+ /* emission.css */
+ /* emission.css */
+
+ .icon-wrapper .icon {
+     font-size: 2rem;
+     /* Adjust size as needed */
+     transition: color 0.3s ease;
+     /* Smooth color transition */
+ }
+
+ /* Specific icon colors */
+ .green-icon {
+     color: #4caf50 !important;
+     /* Green color */
+ }
+
+ .blue-icon {
+     color: #2196f3 !important;
+     /* Blue color */
+ }
+
+ .red-icon {
+     color: #f44336 !important;
+     /* Red color */
+ }
+
+ .purple-icon {
+     color: #9c27b0 !important;
+     /* Purple color */
+ }
+
+ /* Hover effect for all icons */
+ .calculator-card:hover .icon {
+     color: #00bcd4 !important;
+     /* Change to teal color on hover */
+ }

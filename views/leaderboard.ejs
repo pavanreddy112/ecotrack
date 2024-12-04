@@ -1,0 +1,39 @@
+<%- include('partials/header', { title: 'Leaderboard' }) %>
+    <%- include('partials/navbar') %>
+
+        <link rel="stylesheet" href="/css/leaderboard.css">
+
+
+        <body>
+            <div class="container">
+                <h1>Leaderboard</h1>
+                <table class="leaderboard-table">
+                    <a href="/user/challenge" class="back-button">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </a>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Username</th>
+                            <th>Reward Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% leaderboard.forEach((user, index)=> { %>
+                            <tr>
+                                <td>
+                                    <%= index + 1 %>
+                                </td>
+                                <td>
+                                    <%= user.username %>
+                                </td>
+                                <td>
+                                    <%= user.rewardpoints %>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+
+        </body>
